@@ -24,8 +24,7 @@ export default function BattleScreen() {
 
   if (!run || !run.battle) return null
   const { battle } = run
-  const { enemy, player, hand, drawPile, discardPile, intent, phase, log, floatingTexts, rewardGold } =
-    battle
+  const { enemy, player, hand, intent, phase, log, floatingTexts, rewardGold } = battle
 
   const canChoose = phase === 'choosing'
 
@@ -99,11 +98,6 @@ export default function BattleScreen() {
             {line}
           </div>
         ))}
-      </div>
-
-      <div className="deck-counter">
-        <span>山札 {drawPile.length}</span>
-        <span>捨て札 {discardPile.length}</span>
       </div>
 
       <div className={'card-hand' + (canChoose ? '' : ' card-hand--disabled')}>

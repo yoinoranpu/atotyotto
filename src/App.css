@@ -474,17 +474,9 @@
   }
 }
 
-.deck-counter {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  font-size: 0.78rem;
-  color: var(--color-text-dim);
-}
-
 .card-hand {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 8px;
 }
 .card-hand--disabled .card {

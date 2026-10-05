@@ -16,6 +16,7 @@ import * as sfx from '../systems/audio.js'
 
 const BASE_MAX_HP = 45
 const BASE_START_GOLD = 10
+const HAND_SIZE = 3
 
 function makeFloatText(text, kind, tier = 'medium') {
   return {
@@ -75,7 +76,7 @@ export const useGameStore = create((set, get) => ({
       const playerBattle = createPlayerBattleState(run.player.hp, run.player.maxHp)
       playerBattle.strength += run.bonusAtk
       const deck = createDeck(run.ownedCardIds)
-      const { hand, drawPile, discardPile } = drawCards(deck, 5)
+      const { hand, drawPile, discardPile } = drawCards(deck, HAND_SIZE)
       set({
         scene: 'battle',
         run: {
@@ -248,7 +249,7 @@ export const useGameStore = create((set, get) => ({
     const toDiscard = battle.hand.filter((id) => !battle.usedOnceIds.includes(id))
     const { hand, drawPile, discardPile } = drawCards(
       { drawPile: battle.drawPile, discardPile: [...battle.discardPile, ...toDiscard] },
-      5,
+      HAND_SIZE,
     )
     set({
       run: {
