@@ -1,16 +1,28 @@
-# React + Vite
+# あと一手
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+> 敵の次の一手は分かる。だが、自分の次の一手は選べない。
 
-Currently, two official plugins are available:
+毎ターン、敵の次の行動を確認してから、ランダムに提示される5枚の行動カードから1枚を選んで戦う短時間ローグライク。
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 開発
 
-## React Compiler
+```bash
+npm install
+npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm run lint   # oxlint
+npm run build  # 本番ビルド
+```
 
-## Expanding the Oxlint configuration
+## 技術スタック
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+React 19 + Vite + Zustand。外部アセット・サーバーなし(効果音もWeb Audio APIでその場合成)。
+
+## 構成
+
+- `src/data/` — カード・敵・イベントの定義
+- `src/systems/battleEngine.js` — 戦闘の純粋ロジック(山札循環、ダメージ計算など)
+- `src/store/useGameStore.js` — ゲーム全体の状態管理(Zustand)
+- `src/components/` — 画面ごとのUI
