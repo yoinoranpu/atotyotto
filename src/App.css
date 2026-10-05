@@ -618,6 +618,16 @@
   color: var(--color-gold);
   margin: 0;
 }
+.shop-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.shop-section__label {
+  font-size: 0.78rem;
+  color: var(--color-text-dim);
+  letter-spacing: 0.02em;
+}
 .shop-items {
   display: flex;
   flex-direction: column;
@@ -625,6 +635,27 @@
 }
 .shop-item {
   position: relative;
+}
+.shop-effect {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+  color: var(--color-text);
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  background: var(--color-panel);
+}
+.shop-effect:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.shop-effect--instant {
+  border: 1px dashed #4dd0e1;
+}
+.shop-effect--permanent {
+  border: 1px dashed var(--color-gold);
 }
 .shop-remove {
   display: flex;
